@@ -125,10 +125,18 @@ footer {
     }
 
     .main-navigation {
-        display: none; /* 隱藏原始導覽列 */
-        width: 100%;
-        order: 3; /* 調整顯示順序，讓它在 logo 和按鈕之後 */
-        margin-top: 15px;
+        display: none; /* 預設隱藏 */
+        position: absolute; /* 絕對定位 */
+        top: 100%; /* 定位在 header 的下方 */
+        right: 15px; /* 與 menu-toggle 對齊右邊 */
+        background-color: #fff; /* 下拉選單背景色 */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+        z-index: 1000; /* 確保在其他內容之上 */
+        min-width: 180px; /* 設定下拉選單最小寬度 */
+        /* 移除 width: 100%; 和 order: 3; */
+        /* 移除 margin-top: 15px; */
+        border-radius: 4px;
+        overflow: hidden; /* 隱藏超出邊界的內容 */
     }
 
     .main-navigation.toggled {
@@ -136,14 +144,17 @@ footer {
     }
 
     .main-navigation ul {
-        flex-direction: column; /* 選單項目垂直排列 */
-        align-items: center; /* 選單項目置中 */
+        flex-direction: column; /* 選單項目垂直排列 */ /* 保留 */
+        /* align-items: center; /* 選單項目置中 */ /* 可以移除或保留，看需求 */
+        padding: 10px 0; /* 下拉選單內部上下邊距 */
     }
 
     .main-navigation ul li {
-        margin: 10px 0; /* 垂直間距 */
-        width: 100%;
+        margin: 0; /* 移除垂直間距 */
+        /* width: 100%; */ /* 移除 */
     }
+
+    /* 調整下拉選單中連結的樣式 */
 
     .main-navigation ul li a {
         display: block; /* 讓連結佔滿整個 li */
