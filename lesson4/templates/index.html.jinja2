@@ -1,15 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>我的網頁Title</title>
-  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>導覽列範例</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
 </head>
 <body>
-  <header>Header content</header>
-  <main>Main content</main>
-  <aside>Sidebar content</aside>
-  <footer>Footer content</footer>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">職能發展學院</a>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Search</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                <span class="sr-only">開啟選單</span>
+                &#9776; </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <p>這裡是頁面的主要內容...</p>
+        </div>
+    </main>
+
+    <script src="{{url_for('static',filename='js/index.js')}}"></script>
 </body>
 </html>

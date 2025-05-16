@@ -1,47 +1,135 @@
-body, html {
-  margin: 0;
-  padding: 0;
+/* 基本樣式 */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 使用一個常見的無襯線字體 */
+    background-color: #f0f0f0; /* 頁面背景色，方便對比 */
 }
 
-#wrapper {
-  width: 95%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-header, main, aside, footer {
-  padding: 1rem;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Base styles for mobile first */
-#wrapper {
-  width: 95%;
-}
-
-/* Tablets and up */
-@media (min-width: 768px) {
-  #wrapper {
+.container {
     width: 90%;
-  }
-  main {
-    float: left;
-    width: 70%;
-  }
-  aside {
-    float: right;
-    width: 30%;
-  }
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
-/* Desktops and up */
-@media (min-width: 992px) {
-  #wrapper {
-    max-width: 1140px;
-  }
+/* 頁首樣式 */
+.site-header {
+    background-color: #e0e0e0; /* 根據圖片的淺灰色背景 */
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 可選：添加一些陰影增加層次感 */
 }
 
+.site-header .container {
+    display: flex;
+    justify-content: space-between; /* 左右對齊 logo 和導覽列 */
+    align-items: center; /* 垂直居中對齊 */
+}
+
+/* Logo 樣式 */
+.logo a {
+    text-decoration: none;
+    color: #333; /* 深灰色文字 */
+    font-size: 1.5em; /* 調整字體大小 */
+    font-weight: bold;
+}
+
+/* 主要導覽列樣式 */
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* 水平排列選單項目 */
+}
+
+.main-navigation ul li {
+    margin-left: 25px; /* 選單項目之間的間距 */
+}
+
+.main-navigation ul li a {
+    text-decoration: none;
+    color: #333; /* 深灰色文字 */
+    font-size: 1em;
+    padding: 5px 0; /* 增加點擊區域 */
+    position: relative; /* 用於底線動畫 (可選) */
+}
+
+/* 可選：滑鼠懸停時的底線效果 */
+.main-navigation ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 3px;
+    right: 0;
+    background: #555;
+    transition: width 0.3s ease;
+    -webkit-transition: width 0.3s ease;
+}
+
+.main-navigation ul li a:hover::after {
+    width: 100%;
+    left: 0;
+    background-color: #333;
+}
+
+.main-navigation ul li a:hover {
+    color: #000; /* 滑鼠懸停時文字顏色變深 */
+}
+
+/* 漢堡選單按鈕 (預設隱藏，小螢幕時顯示) */
+.menu-toggle {
+    display: none; /* 預設隱藏 */
+    background: none;
+    border: 1px solid #333;
+    color: #333;
+    padding: 8px 12px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* --- Media Queries (響應式設計) --- */
+
+/* 中小型裝置 (例如：平板、手機) - 768px 以下 */
+@media (max-width: 768px) {
+    .main-navigation {
+        display: none; /* 隱藏原始導覽列 */
+        width: 100%;
+        position: absolute; /* 讓選單可以覆蓋在內容之上 */
+        top: 70px; /* 調整選單出現的位置，根據 header 高度 */
+        left: 0;
+        background-color: #e0e0e0; /* 與 header 背景色一致 */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 1000; /* 確保在最上層 */
+    }
+
+    .main-navigation.toggled {
+        display: block; /* 當 .toggled class 被加入時顯示選單 */
+    }
+
+    .main-navigation ul {
+        flex-direction: column; /* 選單項目垂直排列 */
+        align-items: center; /* 居中對齊 */
+        padding: 15px 0;
+    }
+
+    .main-navigation ul li {
+        margin: 10px 0; /* 垂直間距 */
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-navigation ul li a {
+        display: block; /* 讓連結佔滿整個 li */
+        padding: 10px 0;
+    }
+
+    .main-navigation ul li a::after { /* 移除小螢幕時的底線動畫 */
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block; /* 顯示漢堡選單按鈕 */
+    }
+}
