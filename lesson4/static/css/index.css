@@ -1,0 +1,47 @@
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header, main, aside, footer {
+  padding: 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base styles for mobile first */
+#wrapper {
+  width: 95%;
+}
+
+/* Tablets and up */
+@media (min-width: 768px) {
+  #wrapper {
+    width: 90%;
+  }
+  main {
+    float: left;
+    width: 70%;
+  }
+  aside {
+    float: right;
+    width: 30%;
+  }
+}
+
+/* Desktops and up */
+@media (min-width: 992px) {
+  #wrapper {
+    max-width: 1140px;
+  }
+}
+
