@@ -85,11 +85,85 @@ main h1 {
 
 /* 頁尾 Footer */
 footer {
-    background-color: #AFD1E2;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 30px;
+    background-color: #AFD1E2; /* 根據圖片調整的淺藍色，您可以修改 */
+    color: #333; /* 文字顏色，根據圖片內容調整 */
+    padding: 30px 50px 10px 50px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* 讓左右兩部分分開 */
+    align-items: flex-start; /* 頂部對齊 */
+    max-width: 1200px; /* 限制最大寬度，使其居中 */
+    margin: 0 auto; /* 水平居中 */
+    gap: 20px; /* 各區域之間的間距 */
+    flex-wrap: wrap; /* 在小螢幕上換行 */
+}
+
+.footer-left img {
+    max-height: 50px; /* 限制 Logo 高度 */
+    display: block; /* 避免圖片下方多餘空間 */
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px; /* 每個連結區塊之間的間距 */
+    flex-wrap: wrap; /* 在小螢幕上換行 */
+}
+
+.footer-column {
+    min-width: 150px; /* 每個連結區塊的最小寬度 */
+}
+
+.footer-column h4 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #000; /* 標題顏色，根據圖片調整 */
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333; /* 連結文字顏色 */
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #007BFF; /* 連結滑鼠懸停顏色 */
+}
+
+.footer-column p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.app-buttons img {
+    max-height: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: right; /* 根據圖片，版權信息在右邊 */
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #A9A9A9; /* 分隔線顏色 */
+    font-size: 12px;
+    max-width: 1200px;
+    margin-left: auto; /* 與 footer-container 一樣右對齊 */
+    margin-right: auto; /* 與 footer-container 一樣居中 */
 }
 
 /* --- Media Queries (RWD) --- */
@@ -160,5 +234,56 @@ footer {
         display: block; /* 讓連結佔滿整個 li */
         text-align: center;
         padding: 12px 0;
+    }
+}
+
+/*footer RWD*/
+/* 響應式設計：在較小螢幕上的調整 */
+@media (max-width: 992px) {
+    .footer-container {
+        flex-direction: column; /* Logo 和連結區塊垂直排列 */
+        align-items: center; /* 居中對齊 */
+        text-align: center; /* 內容居中 */
+    }
+
+    .footer-left {
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        justify-content: center; /* 連結區塊水平居中 */
+        width: 100%;
+    }
+
+    .footer-column {
+        margin-bottom: 0px;
+        min-width: auto; /* 取消最小寬度限制 */
+        width: 100%; /* 讓每個區塊佔滿寬度 */
+        text-align: center; /* 每個區塊內的文字也居中 */
+    }
+
+    .footer-column h4 {
+        text-align: center;
+    }
+
+    .app-buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        text-align: center; /* 版權信息也居中 */
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-links {
+        flex-direction: column; /* 在非常小的螢幕上，連結區塊也垂直排列 */
+        align-items: center;
+    }
+
+    .footer-column {
+        margin-bottom: 0px;
+        line-height: 0px;
     }
 }
