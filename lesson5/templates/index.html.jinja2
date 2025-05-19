@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>職能發展學院</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">職能發展學院</a>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">課程規劃</a></li>
+                    <li><a href="#">最新消息</a></li>
+                    <li><a href="#">交通資訊</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                menu
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>歡迎來到職能發展學院</h1>
+            <p>這是一個符合 RWD 的基礎網頁框架，您可以基於此框架繼續開發您的網站內容。</p>
+            <p>此框架的導覽列是根據您提供的圖片設計的。</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 職能發展學院. 版權所有.</p>
+        </div>
+    </footer>
+
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+</body>
+</html>
