@@ -6,9 +6,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html.jinja2")
 
-@app.route("/user")
-def user():
-    return "<h1>user!</h1><p>這是我的第2頁</p>"
+@app.route("/classes")
+def classes():
+    return render_template("classes.html.jinja2")
 
 @app.route("/product")
 def product():

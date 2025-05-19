@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>職能發展學院</title>
+    <title>
+    {% block title %}
+    職能發展學院
+    {% endblock %}
+    </title>
     <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 </head>
 <body>
