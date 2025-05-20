@@ -30,3 +30,15 @@ https://youtube.com/live/SQfH1reIugA
 ### 2025_05_16_下午
 
 https://youtube.com/live/MNz1wuJ4LJQ
+
+---
+
+### 2025_05_19_早上
+
+https://youtube.com/live/rGtZ81ncNsg
+
+### 2025_05_19_下午
+
+https://youtube.com/live/JgjQyVD5bVE
+
+---
