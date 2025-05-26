@@ -6,6 +6,11 @@
 {% block main %}
 <h1>{{self.title()}}</h1>
 <h2>{{name}} 您好!</h2>
+<ul>
+{% for day in weekdays%}
+    <li>{{day}}</li>
+{% endfor %}
+</ul>
 
 {{ super() }}
 {% endblock %}
