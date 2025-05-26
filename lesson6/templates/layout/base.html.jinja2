@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    {% block title %}
+    職能發展學院
+    {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <a href="{{url_for('index')}}">職能發展學院</a>
+            </div>
+            <nav class="main-navigation">
+                <ul>
+                    
+                    <li><a href="{{url_for('classes')}}">課程規劃</a></li>
+                    <li><a href="{{url_for('new')}}">最新消息</a></li>
+                    <li><a href="{{url_for('traffic')}}">交通資訊</a></li>
+                    <li><a href="{{url_for('contact')}}">聯絡我們</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+                menu
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+        {% block main %}
+            <h1>歡迎來到職能發展學院</h1>
+            <p>這是一個符合 RWD 的基礎網頁框架，您可以基於此框架繼續開發您的網站內容。</p>
+            <p>此框架的導覽列是根據您提供的圖片設計的。</p>
+        {% endblock %}
+        </div>
+    </main>
+
+   <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <img src="{{url_for('static', filename='images/just_home_logo.png')}}" alt="JustHome Logo">
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Discover</h4>
+                    
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Link</h4>
+                    
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    
+                </div>
+                <div class="footer-column">
+                    <h4>Our Address</h4>
+                    
+                </div>
+                <div class="footer-column">
+                    <h4>Get App</h4>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 職能發展學院. 版權所有.</p>
+        </div>
+    </footer> 
+
+    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+</body>
+</html>
