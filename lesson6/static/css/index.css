@@ -139,6 +139,7 @@ h2.event-main-title{
 .competition-info-section {
   font-family: 'Arial', '微軟正黑體', sans-serif; /* 設定通用且支援中文的字體 */
   padding: 20px 15px; /* 區塊上下邊距20px，左右邊距15px */
+  margin: 20px 15px;
   text-align: center; /* 內部文字預設居中 (標題、副標題) */
   background-color: #f0f2f5; /* 設定一個輕微的背景色，可選 */
 }
@@ -154,6 +155,7 @@ h2.event-main-title{
 .competition-subtitle {
   font-size: 16px; /* 副標題字體大小 */
   color: #666; /* 副標題顏色 */
+  margin-top:0px;
   margin-bottom: 30px; /* 副標題與卡片區塊間距 */
 }
 
