@@ -1,0 +1,92 @@
+/* Banner Styles */
+.custom-banner {
+    display: flex;
+    align-items: center; /* Vertically center the .custom-banner-content */
+    justify-content: center; /* Horizontally center the .custom-banner-content */
+    min-height: 400px; /* Default height, adjust as needed */
+    /* Placeholder image for desktop. Replace with your actual image path. */
+    background-image: url('https://via.placeholder.com/1200x400/DDDDDD/808080?text=Banner+Image+Desktop');
+    background-size: cover;
+    background-position: center;
+    padding: 20px; /* Padding around the content area */
+    color: #333; /* Default text color. Adjust based on your banner image for contrast. */
+}
+
+.custom-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center the text and button */
+    justify-content: center; /* Vertically center items if there's extra space (less relevant here) */
+    text-align: center; /* Ensures text within title/subtitle is centered */
+    /* Optional: Add a semi-transparent background for better text readability on complex images
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    border-radius: 8px;
+    color: #fff; /* Text color if using a dark overlay */
+    */
+}
+
+.custom-banner-title {
+    font-size: 2.8rem; /* Adjust size as needed */
+    margin-bottom: 0.5em; /* Relative to font-size */
+    color: #2c3e50; /* Example color, adjust for your design */
+}
+
+.custom-banner-subtitle {
+    font-size: 1.4rem; /* Adjust size as needed */
+    margin-bottom: 1.5em;
+    color: #34495e; /* Example color, adjust for your design */
+}
+
+.custom-banner-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.1rem; /* Adjust size as needed */
+    color: #ffffff;
+    background-color: #007bff; /* Example blue button, adjust for your design */
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.custom-banner-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Responsive Breakpoints */
+
+/* Medium devices (tablets, etc. <= 992px) */
+@media (max-width: 992px) {
+    .custom-banner {
+        min-height: 350px;
+        background-image: url('https://via.placeholder.com/992x350/CCCCCC/808080?text=Banner+Image+Tablet');
+    }
+    .custom-banner-title { font-size: 2.4rem; }
+    .custom-banner-subtitle { font-size: 1.2rem; }
+    .custom-banner-button { padding: 10px 22px; font-size: 1rem; }
+}
+
+/* Small devices (landscape phones, tablets portrait <= 768px) */
+@media (max-width: 768px) {
+    .custom-banner {
+        min-height: 300px;
+        background-image: url('https://via.placeholder.com/768x300/BBBBBB/808080?text=Banner+Image+Small+Tablet');
+        padding: 15px;
+    }
+    .custom-banner-title { font-size: 2rem; }
+    .custom-banner-subtitle { font-size: 1.1rem; }
+    .custom-banner-button { padding: 10px 20px; font-size: 0.95rem; }
+}
+
+/* Extra small devices (phones <= 576px) */
+@media (max-width: 576px) {
+    .custom-banner {
+        min-height: 250px;
+        background-image: url('https://via.placeholder.com/576x250/AAAAAA/808080?text=Banner+Image+Mobile');
+    }
+    .custom-banner-title { font-size: 1.6rem; }
+    .custom-banner-subtitle { font-size: 0.9rem; }
+    .custom-banner-button { padding: 8px 15px; font-size: 0.9rem; width: auto; max-width: 80%; }
+}
