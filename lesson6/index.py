@@ -8,7 +8,8 @@ def index():
 
 @app.route("/classes")
 def classes():
-    return render_template("classes.html.jinja2")
+    name = "Robert"
+    return render_template("classes.html.jinja2",name=name)
 
 @app.route("/new")
 def new():
