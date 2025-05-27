@@ -50,3 +50,9 @@ https://youtube.com/live/gJC2ZM06PSo
 https://youtube.com/live/xEyNZr4Y8qM
 
 ---
+
+### 2025_05_27_早上
+https://youtube.com/live/oUKOUOiCYY0
+
+### 2025_05_27_下午
+https://youtube.com/live/lso3WEqvq-8
