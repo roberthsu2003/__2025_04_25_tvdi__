@@ -24,8 +24,12 @@ def classes():
 def new():
     try:
         conn = psycopg2.connect(conn_string)
-        #raise Exception("出現錯誤")
-        print("連線成功")
+        with conn.cursor() as cur:
+            sql = "SELECT * FROM 最新訊息"
+            cur.execute(sql)
+        # 取得所有資料
+            rows = cur.fetchall()
+        
     except OperationalError as e:
         print("連線失敗")
         print(e)
@@ -33,7 +37,7 @@ def new():
     except:
         return render_template("error.html.jinja2",error_message="不知名錯誤"),500
     conn.close()
-    return render_template("new.html.jinja2")
+    return render_template("new.html.jinja2",rows=rows)
 
 @app.route("/traffic")
 def traffic():
