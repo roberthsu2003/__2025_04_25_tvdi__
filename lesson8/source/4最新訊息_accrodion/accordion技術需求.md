@@ -1,5 +1,7 @@
 # Accordion 技術需求規格
 
+
+
 ## 1. 總覽
 
 本文件定義了基於 `accordion.png` 圖片所示設計的 HTML、CSS 和 JavaScript 技術需求。
