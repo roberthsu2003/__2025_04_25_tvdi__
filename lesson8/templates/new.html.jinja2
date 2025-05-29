@@ -10,47 +10,27 @@
 
 {% block main %}
 <div class="page-container">
-        <h1>最新訊息 Accordion</h1>
+        <h1>最新訊息</h1>
 
-        <div class="accordion-container">
+            <div class="accordion-container">            
             <!-- Accordion Item 1 (預設展開) -->
-            <div class="accordion-item is-open">
+            {% for row in rows%}            
+            <div class="accordion-item {% if loop.first %}is-open{% endif %}">
                 <button class="accordion-header" aria-expanded="true" aria-controls="accordion-content-1" id="accordion-header-1">
-                    <span class="accordion-title">重要通知：系統維護公告，影響範圍包括用戶登入與資料查詢功能，請提前做好準備</span>
-                    <span class="accordion-date">2024-07-30</span>
+                    <span class="accordion-title">{{loop.index ~ '. ' ~ row[1]}}</span>
+                    <span class="accordion-date">{{row[2].strftime("%Y-%m-%d")}}</span>
                 </button>
                 <div class="accordion-content" role="region" aria-labelledby="accordion-header-1" id="accordion-content-1">
-                    <p>親愛的用戶您好，為提升服務品質，本系統將於 2024年8月5日 凌晨 02:00 至 04:00 進行系統維護作業。維護期間，用戶登入、資料查詢及部分相關服務將暫停使用。建議您提前完成重要操作，若有不便之處，敬請見諒。感謝您的理解與配合。</p>
-                    <p>這是第二段內容，測試固定高度下的顯示情況。</p>
+                    {% if row[3] is not none %}
+                        {% for line in row[3].split("\n")%}
+                            <p>{{line}}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p>沒有資料</p>
+                    {% endif %}
                 </div>
             </div>
-
-            <!-- Accordion Item 2 -->
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false" aria-controls="accordion-content-2" id="accordion-header-2">
-                    <span class="accordion-title">新功能上線：個人化報表產生器</span>
-                    <span class="accordion-date">2024-07-28</span>
-                </button>
-                <div class="accordion-content" role="region" aria-labelledby="accordion-header-2" id="accordion-content-2">
-                    <p>我們很高興地宣布，個人化報表產生器現已正式上線！您可以根據需求自訂報表欄位與篩選條件，輕鬆獲取所需數據分析結果。歡迎立即體驗！</p>
-                </div>
-            </div>
-
-            <!-- Accordion Item 3 -->
-            <div class="accordion-item">
-                <button class="accordion-header" aria-expanded="false" aria-controls="accordion-content-3" id="accordion-header-3">
-                    <span class="accordion-title">客戶服務滿意度調查</span>
-                    <span class="accordion-date">2024-07-25</span>
-                </button>
-                <div class="accordion-content" role="region" aria-labelledby="accordion-header-3" id="accordion-content-3">
-                    <p>為持續改進我們的服務，誠摯邀請您參與本次客戶服務滿意度調查。您的寶貴意見將是我們進步的動力。調查問卷連結：[連結]</p>
-                    <p>此處內容較少，測試不同內容長度下的顯示。</p>
-                    <p>多一行看看。</p>
-                    <p>再多一行。</p>
-                    <p>又多一行。</p>
-                    <p>最後一行，應該會被截斷或出現滾動條（如果 max-height 設定較小且 overflow: auto）。目前設定是 overflow: hidden。</p>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
     <script src="{{url_for('static', filename='js/news.js')}}"></script>
