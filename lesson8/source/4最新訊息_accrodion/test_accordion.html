@@ -89,13 +89,16 @@
         .accordion-content {
             padding: 0 15px; 
             background-color: white;
-            overflow: hidden; 
-            max-height: 0; 
+            overflow: hidden; /* Default hidden, for transition */
+            max-height: 0; /* Default hidden */
+            /* height: auto; /* Removed, fixed height on open */
             transition: max-height 0.3s ease-out, padding-top 0.3s ease-out, padding-bottom 0.3s ease-out;
         }
         
         .accordion-item.is-open .accordion-content {
-            max-height: 150px; /* Adjust as needed for content */
+            height: 100px; /* Fixed height for desktop */
+            max-height: 100px; /* Transition target for desktop, should match height */
+            overflow-y: auto; /* Scroll if content overflows */
             padding-top: 15px;
             padding-bottom: 15px;
         }
@@ -129,7 +132,9 @@
             }
 
             .accordion-item.is-open .accordion-content {
-                /* max-height: 150px; /* Consider adjusting for mobile if needed */
+                height: 120px; /* Fixed height for mobile */
+                max-height: 120px; /* Transition target for mobile */
+                overflow-y: auto; /* Scroll if content overflows on mobile */
                 padding-top: 12px;
                 padding-bottom: 12px;
             }
