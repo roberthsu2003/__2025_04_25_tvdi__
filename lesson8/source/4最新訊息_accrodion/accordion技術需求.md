@@ -115,9 +115,9 @@
     border: none;
     outline: none;
     font-size: 16px;
-    display: flex; /* 使用 flexbox 來排列 title 和 date */
-    justify-content: space-between; /* title 和 date 分散對齊 */
+    display: flex; /* 使用 flexbox 來排列內部元素 */
     align-items: center; /* 垂直居中 */
+    /* justify-content: space-between; /* 移除此行，讓標題推動日期和圖標到右側 */
     transition: background-color 0.3s ease;
 }
 
@@ -129,7 +129,7 @@
     flex-grow: 1; /* 標題佔據多餘空間 */
     margin-right: 10px; /* 與日期之間留點間距 */
     /* 允許多行標題 */
-    white-space: normal; 
+    white-space: normal;
     word-wrap: break-word;
 }
 
@@ -137,6 +137,8 @@
     font-size: 0.9em;
     color: #666;
     white-space: nowrap; /* 日期不換行 */
+    flex-shrink: 0; /* 防止日期被壓縮 */
+    /* margin-right: 10px; /* 如果圖標是 ::after 的話，此處間距由 ::after 的 margin-left 控制 */
 }
 
 /* 展開狀態的頭部樣式 (可選) */
@@ -150,6 +152,7 @@
     font-size: 1.2em;
     color: #777;
     margin-left: 10px;
+    flex-shrink: 0; /* 防止圖標被壓縮 */
     transition: transform 0.3s ease;
 }
 
@@ -162,7 +165,7 @@
 .accordion-content {
     padding: 0 15px; /* 左右 padding, 上下由 max-height 和 is-open 控制 */
     background-color: white;
-    overflow: hidden; 
+    overflow: hidden;
     max-height: 0; /* 預設隱藏 */
     transition: max-height 0.3s ease-out, padding-top 0.3s ease-out, padding-bottom 0.3s ease-out;
 }
@@ -179,6 +182,43 @@
 }
 .accordion-content p:last-child {
     margin-bottom: 0;
+}
+
+/* RWD Adjustments */
+@media (max-width: 767px) { /* 手機版樣式 (螢幕寬度 < 768px) */
+    .accordion-header {
+        padding: 12px; /* 調整手機版頭部 padding */
+        font-size: 15px; /* 調整手機版頭部基礎字體大小 */
+    }
+
+    .accordion-header .accordion-title {
+        margin-right: 8px; /* 調整標題與日期之間的間距 */
+        /* 標題字體大小可繼承或單獨設定 */
+    }
+
+    .accordion-header .accordion-date {
+        font-size: 0.85em; /* 相對於新的 header font-size，或設為絕對值 */
+    }
+
+    .accordion-header::after { /* 圖標 */
+        font-size: 1.1em; /* 調整圖標大小 */
+        margin-left: 8px; /* 調整圖標與日期之間的間距 */
+    }
+
+    .accordion-item.is-open .accordion-content {
+        /* max-height: 150px; /* 手機版內容最大高度，可根據需求調整。若字體或行高變化，此值可能需不同於桌面版以維持相似行數 */
+        padding-top: 12px; /* 調整手機版內容 padding */
+        padding-bottom: 12px;
+    }
+
+    .accordion-content {
+        padding: 0 12px; /* 調整手機版內容左右 padding */
+    }
+
+    .accordion-content p {
+        font-size: 14px; /* 調整手機版內容字體大小 */
+        line-height: 1.5; /* 調整手機版內容行高 */
+    }
 }
 ```
 
