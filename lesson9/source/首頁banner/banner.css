@@ -1,0 +1,126 @@
+/* 請將此區塊CSS手動加入到您的主要樣式表中 */
+
+/* 整體容器 */
+.event-section {
+  font-family: Arial, sans-serif; /* 基本字體，可依專案調整 */
+  text-align: center; /* 文字置中 */
+  padding: 20px; /* 內邊距 */
+}
+
+/* 主要標題 */
+.event-main-title {
+  font-size: 2em; /* 標題字體大小 */
+  margin-bottom: 0.5em; /* 下邊距 */
+  color: #333; /* 標題顏色 */
+}
+
+/* 副標題 */
+.event-subtitle {
+  font-size: 1.2em; /* 副標題字體大小 */
+  margin-bottom: 1.5em; /* 下邊距 */
+  color: #555; /* 副標題顏色 */
+}
+
+/* 活動卡片 */
+.event-card {
+  background-color: #fff; /* 卡片背景色 */
+  border: 1px solid #ddd; /* 卡片邊框 */
+  border-radius: 8px; /* 卡片圓角 */
+  padding: 15px; /* 卡片內邊距 */
+  max-width: 600px; /* 卡片最大寬度，可依需求調整 */
+  margin: 0 auto; /* 卡片水平置中 */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 卡片陰影 */
+  overflow: hidden; /* 避免內容溢出 */
+}
+
+/* 圖片容器 */
+.event-image-container {
+  position: relative; /* 設定為相對定位，供內部絕對定位元素使用 */
+  margin-bottom: 10px; /* 圖片和說明文字間的距離 */
+}
+
+/* 圖片左上角標籤 */
+.event-image-tag {
+  position: absolute; /* 絕對定位 */
+  top: 10px; /* 距離頂部10px */
+  left: 10px; /* 距離左側10px */
+  background-color: rgba(0, 0, 0, 0.6); /* 標籤背景色 (半透明黑) */
+  color: #fff; /* 標籤文字顏色 (白) */
+  padding: 5px 10px; /* 標籤內邊距 */
+  font-size: 0.8em; /* 標籤字體大小 */
+  border-radius: 4px; /* 標籤圓角 */
+  z-index: 1; /* 確保標籤在圖片上方 */
+}
+
+/* 圖片 */
+.event-image {
+  display: block; /* 使圖片成為區塊元素，才能套用 margin: auto */
+  max-width: 100%; /* 圖片最大寬度為容器的100%，確保響應式 */
+  height: auto; /* 高度自動，維持圖片比例 */
+  border-radius: 4px; /* 圖片圓角 */
+}
+
+/* 圖片下方說明文字 */
+.event-caption {
+  font-size: 1em; /* 說明文字字體大小 */
+  color: #333; /* 說明文字顏色 */
+  margin-top: 10px; /* 上邊距 */
+}
+
+/* --- 響應式設計 - 中斷點 --- */
+
+/* 螢幕寬度 <= 992px */
+@media (max-width: 992px) {
+  .event-main-title {
+    font-size: 1.8em; /* 調整主標題字體大小 */
+  }
+  .event-subtitle {
+    font-size: 1.1em; /* 調整副標題字體大小 */
+  }
+  .event-card {
+    max-width: 90%; /* 調整卡片最大寬度 */
+  }
+}
+
+/* 螢幕寬度 <= 768px */
+@media (max-width: 768px) {
+  .event-main-title {
+    font-size: 1.6em; /* 進一步調整主標題字體大小 */
+  }
+  .event-subtitle {
+    font-size: 1em; /* 進一步調整副標題字體大小 */
+  }
+  .event-card {
+    padding: 10px; /* 調整卡片內邊距 */
+  }
+  .event-image-tag {
+    font-size: 0.75em; /* 調整標籤字體大小 */
+    padding: 4px 8px; /* 調整標籤內邊距 */
+  }
+  .event-caption {
+    font-size: 0.9em; /* 調整說明文字字體大小 */
+  }
+}
+
+/* 螢幕寬度 <= 576px */
+@media (max-width: 576px) {
+  .event-section {
+    padding: 15px; /* 調整整體內邊距 */
+  }
+  .event-main-title {
+    font-size: 1.4em; /* 為小螢幕調整主標題字體大小 */
+  }
+  .event-subtitle {
+    font-size: 0.9em; /* 為小螢幕調整副標題字體大小 */
+  }
+  .event-card {
+    max-width: 95%; /* 確保卡片在小螢幕上幾乎滿寬 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 調整陰影 */
+  }
+  .event-image-tag {
+    font-size: 0.7em; /* 調整標籤字體大小 */
+    top: 5px; /* 調整標籤位置 */
+    left: 5px; /* 調整標籤位置 */
+  }
+}
+/* CSS結束 */
