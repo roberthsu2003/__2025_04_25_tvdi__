@@ -3,14 +3,18 @@
 職能發展學院-課程規劃
 {% endblock %}
 
-{% block main %}
-<h1>{{self.title()}}</h1>
-<h2>{{name}} 您好!</h2>
-<ul>
-{% for day in weekdays%}
-    <li>{{day}}</li>
-{% endfor %}
-</ul>
+{% block link %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/classes.css')}}">
+{% endblock%}
 
-{{ super() }}
+{% block main %}
+<div class="course-tabs">
+        <div class="tab-container">
+            <button class="tab-item active" data-tab="general">一般課程</button>
+            <button class="tab-item" data-tab="advanced">進階課程</button>
+        </div>
+        <div class="tab-line"></div>
+</div>
+<script src="{{ url_for('static',filename='js/classes.js')}}"></script>
 {% endblock %}
