@@ -1,63 +1,11 @@
+
+
 body {
-    font-family: 'Inter', sans-serif; /* 假設 Inter 字體已載入 */
-    margin: 0;
-    padding: 20px; /* 方便預覽 */
-    background-color: #f0f0f0; /* 方便預覽 */
-}
-
-.course-tabs {
-    max-width: 1174px;
-    width: 100%; /* 可調整為 100% 適應容器 */
-    margin: 0 auto; /* 置中 */
-}
-
-.tab-container {
-    display: flex;
-    height: 40px;
-}
-
-.tab-item {
     font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
-    line-height: 1.21;
-    padding: 12px 12px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    color: #000000;
-    transition: background-color 0.2s ease-in-out, transform 0.1s ease; /* 加入轉場效果 */
-}
-
-.tab-item.active {
-    background-color: #C3C1C1;
-}
-
-.tab-item:not(.active) {
-    background-color: #E8E6E6;
-}
-
-/* Hover 效果 */
-.tab-item.active:hover {
-    background-color: #B5B3B3;
-}
-
-.tab-item:not(.active):hover {
-    background-color: #D0CECE;
-}
-
-/* 點擊反饋 (可選) */
-.tab-item:active {
-    transform: scale(0.98); /* 輕微縮放 */
-}
-.tab-line {
-    width: 100%;
-    height: 1px;
-    background-color: #000000;
+    margin: 0;
+    background-color: #f0f0f0; /* Example page background */
+    padding: 20px; /* Example page padding */
+    box-sizing: border-box;
 }
 
 .testimonial-grid {
@@ -159,24 +107,8 @@ body {
     text-overflow: ellipsis;
 }
 
-/* RWD 響應式設計 */
-
-/* 手機版 (<768px) */
-@media (max-width: 768px) {
-    .course-tabs {
-        /* 容器寬度已是 100% */
-    }
-
-    .tab-item {
-        padding: 12px 12px;
-    }
-
-    /* 標籤可能需要垂直排列或允許水平捲動 - 此處示範水平捲動 */
-    .tab-container {
-        overflow-x: auto; /* 允許水平捲動 */
-        -webkit-overflow-scrolling: touch; /* iOS 慣性捲動 */
-    }
-
+/* Responsive Design: Mobile (≤767px) */
+@media (max-width: 767px) {
     .testimonial-grid {
         padding: 24px;
     }
