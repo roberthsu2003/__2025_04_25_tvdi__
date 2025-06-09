@@ -24,6 +24,7 @@ def classes():
         cur.execute(sql)
         temps = cur.fetchall()
         kinds = [kind[0] for kind in temps]
+        kinds.reverse()
     print(kinds)
     return render_template("classes.html.jinja2",kinds=kinds)
 
