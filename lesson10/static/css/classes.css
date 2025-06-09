@@ -1,0 +1,200 @@
+body {
+    font-family: 'Inter', sans-serif; /* 假設 Inter 字體已載入 */
+    margin: 0;
+    padding: 20px; /* 方便預覽 */
+    background-color: #f0f0f0; /* 方便預覽 */
+}
+
+.course-tabs {
+    max-width: 1174px;
+    width: 100%; /* 可調整為 100% 適應容器 */
+    margin: 0 auto; /* 置中 */
+}
+
+.tab-container {
+    display: flex;
+    height: 40px;
+}
+
+.tab-item {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.21;
+    padding: 12px 12px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #000000;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease; /* 加入轉場效果 */
+}
+
+.tab-item.active {
+    background-color: #C3C1C1;
+}
+
+.tab-item:not(.active) {
+    background-color: #E8E6E6;
+}
+
+/* Hover 效果 */
+.tab-item.active:hover {
+    background-color: #B5B3B3;
+}
+
+.tab-item:not(.active):hover {
+    background-color: #D0CECE;
+}
+
+/* 點擊反饋 (可選) */
+.tab-item:active {
+    transform: scale(0.98); /* 輕微縮放 */
+}
+.tab-line {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+}
+
+.testimonial-grid {
+    width: 1200px;
+    max-width: 100%; /* Ensure it doesn't overflow smaller viewports */
+    margin: 0 auto;
+    padding: 64px;
+    background-color: #FFFFFF; /* Overall component background */
+    box-sizing: border-box;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+}
+
+.testimonial-card {
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Helps if card content heights vary */
+    box-sizing: border-box;
+}
+
+.quote-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2em;
+    letter-spacing: -0.02em;
+    color: #1E1E1E;
+    margin: 0 0 24px 0;
+}
+
+.author-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 139px; /* As per spec: "總寬度: 139px" */
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent avatar from shrinking if author-block width is constrained */
+}
+
+.avatar span {
+    font-size: calc(40px * 0.5); /* Adjust letter size within avatar */
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Spacing between title and description */
+    /* The text will wrap if it exceeds the available space within the 139px author-block */
+    min-width: 0; /* Allow text to shrink and wrap properly in flex item */
+}
+
+.author-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.4em;
+    color: #757575;
+    margin: 0;
+    white-space: nowrap; /* Prevent wrapping if desired, or remove for wrapping */
+    overflow: hidden;    /* Example: if text should be truncated */
+    text-overflow: ellipsis; /* Example: if text should be truncated */
+}
+
+.author-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4em;
+    color: #B3B3B3;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* RWD 響應式設計 */
+
+/* 手機版 (<768px) */
+@media (max-width: 768px) {
+    .course-tabs {
+        /* 容器寬度已是 100% */
+    }
+
+    .tab-item {
+        padding: 12px 12px;
+    }
+
+    /* 標籤可能需要垂直排列或允許水平捲動 - 此處示範水平捲動 */
+    .tab-container {
+        overflow-x: auto; /* 允許水平捲動 */
+        -webkit-overflow-scrolling: touch; /* iOS 慣性捲動 */
+    }
+
+    .testimonial-grid {
+        padding: 24px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* 1 column layout */
+        gap: 24px;
+    }
+
+    .quote-text {
+        font-size: 20px;
+    }
+
+    .author-title {
+        font-size: 14px;
+    }
+
+    .author-description {
+        font-size: 14px;
+    }
+}

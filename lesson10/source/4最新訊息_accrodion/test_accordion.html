@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordion 測試頁面</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+        }
+        .page-container { /* Renamed from 'container' to avoid conflict if accordion is placed in a generic 'container' */
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Accordion CSS (複製貼上第 3.1 節的 CSS) --- */
+        .accordion-container {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            /* font-family: Arial, sans-serif; /* Already set on body */
+        }
+
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+        }
+
+        .accordion-item:last-child {
+            border-bottom: none;
+        }
+
+        .accordion-header {
+            background-color: #f7f7f7;
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            display: flex; 
+            /* justify-content: space-between; /* Removed as per RWD update in markdown */
+            align-items: center; 
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: #e9e9e9;
+        }
+
+        .accordion-header .accordion-title {
+            flex-grow: 1; 
+            margin-right: 10px; 
+            white-space: normal; 
+            word-wrap: break-word;
+        }
+
+        .accordion-header .accordion-date {
+            font-size: 0.9em;
+            color: #666;
+            white-space: nowrap; 
+            flex-shrink: 0; /* Added as per RWD update in markdown */
+        }
+
+        .accordion-item.is-open .accordion-header {
+            background-color: #e0e0e0;
+        }
+
+        .accordion-header::after {
+            content: '+'; 
+            font-size: 1.2em;
+            color: #777;
+            margin-left: 10px;
+            flex-shrink: 0; /* Added as per RWD update in markdown */
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.is-open .accordion-header::after {
+            content: '-'; 
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            padding: 0 15px; 
+            background-color: white;
+            overflow: hidden; /* Default hidden, for transition */
+            max-height: 0; /* Default hidden */
+            /* height: auto; /* Removed, fixed height on open */
+            transition: max-height 0.3s ease-out, padding-top 0.3s ease-out, padding-bottom 0.3s ease-out;
+        }
+        
+        .accordion-item.is-open .accordion-content {
+            height: 100px; /* Fixed height for desktop */
+            max-height: 100px; /* Transition target for desktop, should match height */
+            overflow-y: auto; /* Scroll if content overflows */
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+
+        .accordion-content p {
+            margin: 0 0 10px 0;
+            line-height: 1.6;
+        }
+        .accordion-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* RWD Adjustments from markdown */
+        @media (max-width: 767px) {
+            .accordion-header {
+                padding: 12px;
+                font-size: 15px;
+            }
+
+            .accordion-header .accordion-title {
+                margin-right: 8px;
+            }
+
+            .accordion-header .accordion-date {
+                font-size: 0.85em;
+            }
+
+            .accordion-header::after {
+                font-size: 1.1em;
+                margin-left: 8px;
+            }
+
+            .accordion-item.is-open .accordion-content {
+                height: 120px; /* Fixed height for mobile */
+                max-height: 120px; /* Transition target for mobile */
+                overflow-y: auto; /* Scroll if content overflows on mobile */
+                padding-top: 12px;
+                padding-bottom: 12px;
+            }
+
+            .accordion-content {
+                padding: 0 12px;
+            }
+            .accordion-content p {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+        }
+        /* --- End Accordion CSS --- */
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <h1>最新訊息 Accordion</h1>
+
+        <div class="accordion-container">
+            <!-- Accordion Item 1 (預設展開) -->
+            <div class="accordion-item is-open">
+                <button class="accordion-header" aria-expanded="true" aria-controls="accordion-content-1" id="accordion-header-1">
+                    <span class="accordion-title">重要通知：系統維護公告，影響範圍包括用戶登入與資料查詢功能，請提前做好準備</span>
+                    <span class="accordion-date">2024-07-30</span>
+                </button>
+                <div class="accordion-content" role="region" aria-labelledby="accordion-header-1" id="accordion-content-1">
+                    <p>親愛的用戶您好，為提升服務品質，本系統將於 2024年8月5日 凌晨 02:00 至 04:00 進行系統維護作業。維護期間，用戶登入、資料查詢及部分相關服務將暫停使用。建議您提前完成重要操作，若有不便之處，敬請見諒。感謝您的理解與配合。</p>
+                    <p>這是第二段內容，測試固定高度下的顯示情況。</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="accordion-content-2" id="accordion-header-2">
+                    <span class="accordion-title">新功能上線：個人化報表產生器</span>
+                    <span class="accordion-date">2024-07-28</span>
+                </button>
+                <div class="accordion-content" role="region" aria-labelledby="accordion-header-2" id="accordion-content-2">
+                    <p>我們很高興地宣布，個人化報表產生器現已正式上線！您可以根據需求自訂報表欄位與篩選條件，輕鬆獲取所需數據分析結果。歡迎立即體驗！</p>
+                </div>
+            </div>
+
+            <!-- Accordion Item 3 -->
+            <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false" aria-controls="accordion-content-3" id="accordion-header-3">
+                    <span class="accordion-title">客戶服務滿意度調查</span>
+                    <span class="accordion-date">2024-07-25</span>
+                </button>
+                <div class="accordion-content" role="region" aria-labelledby="accordion-header-3" id="accordion-content-3">
+                    <p>為持續改進我們的服務，誠摯邀請您參與本次客戶服務滿意度調查。您的寶貴意見將是我們進步的動力。調查問卷連結：[連結]</p>
+                    <p>此處內容較少，測試不同內容長度下的顯示。</p>
+                    <p>多一行看看。</p>
+                    <p>再多一行。</p>
+                    <p>又多一行。</p>
+                    <p>最後一行，應該會被截斷或出現滾動條（如果 max-height 設定較小且 overflow: auto）。目前設定是 overflow: hidden。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript (複製貼上第 4.2 節的 JS)
+        document.addEventListener('DOMContentLoaded', function () {
+            const accordionItems = document.querySelectorAll('.accordion-container .accordion-item');
+
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                if (!header) return;
+
+                header.addEventListener('click', () => {
+                    const isCurrentlyOpen = item.classList.contains('is-open');
+
+                    if (!isCurrentlyOpen) {
+                        accordionItems.forEach(otherItem => {
+                            if (otherItem !== item && otherItem.classList.contains('is-open')) {
+                                otherItem.classList.remove('is-open');
+                                const otherHeader = otherItem.querySelector('.accordion-header');
+                                if (otherHeader) {
+                                    otherHeader.setAttribute('aria-expanded', 'false');
+                                }
+                            }
+                        });
+                    }
+
+                    if (isCurrentlyOpen) {
+                        item.classList.remove('is-open');
+                        header.setAttribute('aria-expanded', 'false');
+                    } else {
+                        item.classList.add('is-open');
+                        header.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

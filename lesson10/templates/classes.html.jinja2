@@ -1,0 +1,106 @@
+{% extends "layout/base.html.jinja2" %}
+{% block title %}
+職能發展學院-課程規劃
+{% endblock %}
+
+{% block link %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/classes.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+{% endblock%}
+
+{% block main %}
+<div class="course-tabs">
+        <div class="tab-container">
+            <button class="tab-item active" data-tab="general">一般課程</button>
+            <button class="tab-item" data-tab="advanced">進階課程</button>
+        </div>
+        <div class="tab-line"></div>
+</div>
+<section class="testimonial-grid">
+  <div class="card-grid">
+    <div class="testimonial-card">
+      <div class="quote-text">"這課程太棒了！內容實用，講師專業，讓我收穫滿滿。"</div>
+      <div class="author-block">
+        <div class="avatar">
+          <span>F</span>
+          <!-- <img src="Card_Grid_Icon.png" alt="陳小明 頭像"> -->
+        </div>
+        <div class="author-info">
+          <div class="author-title">陳小明</div>
+          <div class="author-description">軟體工程師</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-text">"推薦給所有想提升技能的朋友，絕對物超所值！"</div>
+      <div class="author-block">
+        <div class="avatar">
+          <span>L</span>
+        </div>
+        <div class="author-info">
+          <div class="author-title">林小姐</div>
+          <div class="author-description">產品經理</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-text">"講師的教學方式淺顯易懂，即使是初學者也能快速上手。"</div>
+      <div class="author-block">
+        <div class="avatar">
+          <span>W</span>
+        </div>
+        <div class="author-info">
+          <div class="author-title">王大衛</div>
+          <div class="author-description">大學生</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-text">"課程安排緊湊，案例豐富，對我的工作有很大幫助。"</div>
+      <div class="author-block">
+        <div class="avatar">
+          <span>Z</span>
+        </div>
+        <div class="author-info">
+          <div class="author-title">張美麗</div>
+          <div class="author-description">行銷專員</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-text">"學到了很多實用的技巧，感謝學院提供這麼好的課程。"</div>
+      <div class="author-block">
+        <div class="avatar">
+          <span>H</span>
+        </div>
+        <div class="author-info">
+          <div class="author-title">黃先生</div>
+          <div class="author-description">自由工作者</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="quote-text">"這是我上過最好的線上課程之一，強烈推薦！"</div>
+      <div class="author-block">
+        <div class="avatar">
+          <!-- Example with image -->
+          <!-- <img src="Card_Grid_Icon.png" alt="吳小華 頭像"> -->
+           <span>C</span>
+        </div>
+        <div class="author-info">
+          <div class="author-title">吳小華</div>
+          <div class="author-description">設計師</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<script src="{{ url_for('static',filename='js/classes.js')}}"></script>
+{% endblock %}

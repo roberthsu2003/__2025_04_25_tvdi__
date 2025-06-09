@@ -1,0 +1,289 @@
+/* 基本樣式 */
+body {
+    margin: 0;
+    font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff; /* 頁面預設背景色 */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* 頁首 Header */
+.site-header {
+    background-color: #AFD1E2; /* 根據圖片的淺灰色背景 */
+    padding: 15px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+.logo a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.6em; /* 調整Logo字體大小 */
+    font-weight: bold;
+}
+
+/* 主要導覽列 Main Navigation */
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* 桌面版水平排列 */
+}
+
+.main-navigation ul li {
+    margin-left: 20px; /* 導覽項目間距 */
+}
+
+.main-navigation ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1em;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-navigation ul li a:hover,
+.main-navigation ul li a.active { /* 可為當前頁面添加 active class */
+    background-color: #3c4679;
+    color: #fff;
+}
+
+/* Menu Toggle Button (手機版 Menu 按鈕) */
+.menu-toggle {
+    display: none; /* 預設隱藏，手機版顯示 */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* 主要內容 Main */
+main {
+    padding: 30px 0;
+}
+
+main h1 {
+    margin-bottom: 20px;
+}
+
+/* 頁尾 Footer */
+footer {
+    background-color: #AFD1E2; /* 根據圖片調整的淺藍色，您可以修改 */
+    color: #333; /* 文字顏色，根據圖片內容調整 */
+    padding: 30px 50px 10px 50px;
+    font-size: 14px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* 讓左右兩部分分開 */
+    align-items: flex-start; /* 頂部對齊 */
+    max-width: 1200px; /* 限制最大寬度，使其居中 */
+    margin: 0 auto; /* 水平居中 */
+    gap: 20px; /* 各區域之間的間距 */
+    flex-wrap: wrap; /* 在小螢幕上換行 */
+}
+
+.footer-left img {
+    max-height: 50px; /* 限制 Logo 高度 */
+    display: block; /* 避免圖片下方多餘空間 */
+}
+
+.footer-links {
+    display: flex;
+    gap: 30px; /* 每個連結區塊之間的間距 */
+    flex-wrap: wrap; /* 在小螢幕上換行 */
+}
+
+.footer-column {
+    min-width: 150px; /* 每個連結區塊的最小寬度 */
+}
+
+.footer-column h4 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #000; /* 標題顏色，根據圖片調整 */
+    font-weight: bold;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 8px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333; /* 連結文字顏色 */
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #007BFF; /* 連結滑鼠懸停顏色 */
+}
+
+.footer-column p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.app-buttons img {
+    max-height: 40px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: right; /* 根據圖片，版權信息在右邊 */
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #A9A9A9; /* 分隔線顏色 */
+    font-size: 12px;
+    max-width: 1200px;
+    margin-left: auto; /* 與 footer-container 一樣右對齊 */
+    margin-right: auto; /* 與 footer-container 一樣居中 */
+}
+
+/* --- Media Queries (RWD) --- */
+
+/* 手機版樣式 (768px 以下) */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-wrap: wrap; /* 允許換行 */
+    }
+
+    .logo {
+        width: 100%; /* Logo 佔滿整行 */
+        text-align: center; /* Logo 置中 */
+        margin-bottom: 10px; /* 與下方按鈕的間距 */
+    }
+     /* 為了讓 menu 按鈕在右上角，將 logo 和 menu-toggle 放在一個容器，或者調整 order */
+    .site-header .container {
+        position: relative; /* 為了 menu-toggle 的絕對定位 */
+    }
+    .logo {
+        width: auto; /* 取消佔滿整行，讓 menu 按鈕可以放到右邊 */
+        text-align: left; /* Logo靠左 */
+        margin-bottom: 0;
+    }
+
+    .menu-toggle {
+        display: block; /* 顯示 Menu 按鈕 */
+        /* 如果希望按鈕固定在右上角，即使logo文字很長 */
+        position: absolute;
+        top: 50%;
+        right: 15px; /* 配合 container 的 padding */
+        transform: translateY(-50%);
+    }
+
+    .main-navigation {
+        display: none; /* 預設隱藏 */
+        position: absolute; /* 絕對定位 */
+        top: 100%; /* 定位在 header 的下方 */
+        right: 15px; /* 與 menu-toggle 對齊右邊 */
+        background-color: #fff; /* 下拉選單背景色 */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* 陰影效果 */
+        z-index: 1000; /* 確保在其他內容之上 */
+        min-width: 180px; /* 設定下拉選單最小寬度 */
+        /* 移除 width: 100%; 和 order: 3; */
+        /* 移除 margin-top: 15px; */
+        border-radius: 4px;
+        overflow: hidden; /* 隱藏超出邊界的內容 */
+    }
+
+    .main-navigation.toggled {
+        display: block; /* 當 .toggled class 被加入時顯示選單 */
+    }
+
+    .main-navigation ul {
+        flex-direction: column; /* 選單項目垂直排列 */ /* 保留 */
+        /* align-items: center; /* 選單項目置中 */ /* 可以移除或保留，看需求 */
+        padding: 10px 0; /* 下拉選單內部上下邊距 */
+    }
+
+    .main-navigation ul li {
+        margin: 0; /* 移除垂直間距 */
+        /* width: 100%; */ /* 移除 */
+    }
+
+    /* 調整下拉選單中連結的樣式 */
+
+    .main-navigation ul li a {
+        display: block; /* 讓連結佔滿整個 li */
+        text-align: center;
+        padding: 12px 0;
+    }
+}
+
+/*footer RWD*/
+/* 響應式設計：在較小螢幕上的調整 */
+@media (max-width: 992px) {
+    .footer-container {
+        flex-direction: column; /* Logo 和連結區塊垂直排列 */
+        align-items: center; /* 居中對齊 */
+        text-align: center; /* 內容居中 */
+    }
+
+    .footer-left {
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        justify-content: center; /* 連結區塊水平居中 */
+        width: 100%;
+    }
+
+    .footer-column {
+        margin-bottom: 0px;
+        min-width: auto; /* 取消最小寬度限制 */
+        width: 100%; /* 讓每個區塊佔滿寬度 */
+        text-align: center; /* 每個區塊內的文字也居中 */
+    }
+
+    .footer-column h4 {
+        text-align: center;
+    }
+
+    .app-buttons {
+        display: flex;
+        justify-content: center;
+    }
+
+    .footer-bottom {
+        text-align: center; /* 版權信息也居中 */
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-links {
+        flex-direction: column; /* 在非常小的螢幕上，連結區塊也垂直排列 */
+        align-items: center;
+    }
+
+    .footer-column {
+        margin-bottom: 0px;
+        line-height: 0px;
+    }
+}
