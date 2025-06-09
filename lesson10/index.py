@@ -16,9 +16,16 @@ def index():
 
 @app.route("/classes")
 def classes():
-    name = "Robert"
-    weekdays = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
-    return render_template("classes.html.jinja2",name=name,weekdays=weekdays)
+    conn = psycopg2.connect(conn_string)
+    with conn.cursor() as cur:
+        sql = """
+        SELECT DISTINCT "課程類別" FROM "進修課程";
+        """
+        cur.execute(sql)
+        temps = cur.fetchall()
+        kinds = [kind[0] for kind in temps]
+    print(kinds)
+    return render_template("classes.html.jinja2",kinds=kinds)
 
 @app.route("/new")
 def new():
