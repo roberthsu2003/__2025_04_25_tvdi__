@@ -14,7 +14,7 @@
 <div class="course-tabs">
         <div class="tab-container">
         {% for kind in kinds%}     
-          <button class="tab-item {{'active' if loop.first}}">{{kind}}</button>
+          <a href="/classes/{{'一般課程' if loop.first else '進階課程'}}" ><button class="tab-item {{'active' if loop.first}}">{{kind}}</button></a>
         {% endfor %}
         </div>
         <div class="tab-line"></div>
