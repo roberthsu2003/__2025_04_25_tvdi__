@@ -76,3 +76,13 @@ https://youtube.com/live/zdLS7UVzP6I
 
 ### 2025_06_05_下午
 https://youtube.com/live/7IEcXFS78TA
+
+---
+
+### 2025_06_09_上午
+
+https://youtube.com/live/00XvyjwpBt8
+
+### 2025_06_09_下午
+
+https://youtube.com/live/P4GKdaKTBK4
