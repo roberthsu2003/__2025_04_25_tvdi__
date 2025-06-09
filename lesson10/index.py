@@ -14,8 +14,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html.jinja2")
 
-@app.route("/classes")
-def classes():
+@app.route("/classes",defaults={'course_types':'一般課程'})
+@app.route("/classes/<course_types>")
+def classes(course_types):
+    print(course_types)
     conn = psycopg2.connect(conn_string)
     with conn.cursor() as cur:
         sql = """
@@ -25,7 +27,7 @@ def classes():
         temps = cur.fetchall()
         kinds = [kind[0] for kind in temps]
         kinds.reverse()
-    print(kinds)
+
     return render_template("classes.html.jinja2",kinds=kinds)
 
 @app.route("/new")
