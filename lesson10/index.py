@@ -28,7 +28,7 @@ def classes(course_types):
         kinds = [kind[0] for kind in temps]
         kinds.reverse()
 
-        sql_course = """
+        sql_course = f"""
         SELECT
             "課程名稱",
             "老師",
@@ -40,7 +40,7 @@ def classes(course_types):
         FROM
             "進修課程"
         WHERE
-            "課程類別" = '一般課程'
+            "課程類別" = '{course_types}'
         LIMIT 6;
         """
         cur.execute(sql_course)
