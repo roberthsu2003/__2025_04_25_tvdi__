@@ -1,4 +1,4 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 import os
 from dotenv import load_dotenv
 import psycopg2
@@ -44,7 +44,7 @@ def classes(course_types):
         """
         cur.execute(sql_course, (course_types,))
         course_data = cur.fetchall()
-        page = 5
+        page = request.args.get('page',1,type=int)
         per_page = 6
         total = len(course_data)
         print(total)
@@ -54,7 +54,7 @@ def classes(course_types):
         items = course_data[start:end]  # 取得該頁資料
 
 
-    return render_template("classes.html.jinja2",kinds=kinds,course_data=items)
+    return render_template("classes.html.jinja2",kinds=kinds,course_data=items,page=page,total_pages=total_pages)
 
 @app.route("/new")
 def new():

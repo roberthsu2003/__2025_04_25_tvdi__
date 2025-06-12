@@ -41,6 +41,36 @@
     </div>
   {% endfor %}
   </div>
+  <div>
+  <ul class="pagination">
+  {% if page > 1 %}
+    <li><a href="{{ url_for('classes', page=page-1) }}">上一頁</a></li>
+  {% else %}
+    <li class="disabled"><span>上一頁</span></li>
+  {% endif %}
+
+  {% for p in range(1, total_pages + 1) %}
+    {% if p == page %}
+      <li class="active"><span>{{ p }}</span></li>
+    {% else %}
+      <li><a href="{{ url_for('classes', page=p) }}">{{ p }}</a></li>
+    {% endif %}
+  {% endfor %}
+
+  {% if page < total_pages %}
+    <li><a href="{{ url_for('classes', page=page+1) }}">下一頁</a></li>
+  {% else %}
+    <li class="disabled"><span>下一頁</span></li>
+  {% endif %}
+</ul>
+
+<!-- 顯示該頁資料 -->
+<ul>
+  {% for item in items %}
+    <li>{{ item }}</li>
+  {% endfor %}
+</ul>
+  </div>
 </section>
 <script src="{{ url_for('static',filename='js/classes.js')}}"></script>
 {% endblock %}
