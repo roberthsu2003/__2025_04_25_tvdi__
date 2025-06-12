@@ -1,0 +1,74 @@
+{% extends "layout/base.html.jinja2" %}
+{% block title %}
+職能發展學院-課程規劃
+{% endblock %}
+
+{% block link %}
+    {{super()}}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/classes.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+{% endblock%}
+
+{% block main %}
+
+<div class="course-tabs">
+        <div class="tab-container">
+        {% for kind in kinds %}
+          {# 
+            使用 url_for 動態生成 URL，並根據當前課程類型設置 active class 
+            這需要後端傳遞 current_kind 變數
+          #}
+          <a href="{{ url_for('classes', kind=kind) }}" class="tab-item {% if kind == current_kind %}active{% endif %}">{{ kind }}</a>
+        {% endfor %}
+        </div>
+        <div class="tab-line"></div>
+</div>
+<section class="testimonial-grid">
+  <div class="card-grid">
+  {%for course in course_data%}  
+    
+    <div class="card">
+        <div class="card-content">
+            {# 建議後端將 course_data 改為字典列表，以增強可讀性，例如：course.category 取代 course[1] #}
+            <p class="card-category">{{course[1]}}</p>
+            <h3 class="card-title">{{course[0]}}</h3>
+            <div class="card-info">
+                <div class="card-divider"></div>
+                <div class="card-details">
+                    <p class="card-info-item">進修人數:{{course[2]}}</p>
+                    <p class="card-info-item">進修時數:{{course[3]}}</p>
+                    <p class="card-info-item">進修費用:{{course[4]}}</p>
+                    <p class="card-info-item">上課時間:{{course[5]}}</p>
+                    <p class="card-info-item">開始日期:{{course[6]}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endfor %}
+  </div>
+  <div>
+  <ul class="pagination">
+  {% if page > 1 %}
+    <li><a href="{{ url_for('classes', kind=current_kind, page=page-1) }}">上一頁</a></li>
+  {% else %}
+    <li class="disabled"><span>上一頁</span></li>
+  {% endif %}
+
+  {% for p in range(1, total_pages + 1) %}
+    {% if p == page %}
+      <li class="active"><span>{{ p }}</span></li>
+    {% else %}
+      <li><a href="{{ url_for('classes', kind=current_kind, page=p) }}">{{ p }}</a></li>
+    {% endif %}
+  {% endfor %}
+
+  {% if page < total_pages %}
+    <li><a href="{{ url_for('classes', kind=current_kind, page=page+1) }}">下一頁</a></li>
+  {% else %}
+    <li class="disabled"><span>下一頁</span></li>
+  {% endif %}
+</ul>
+  </div>
+</section>
+<script src="{{ url_for('static',filename='js/classes.js')}}"></script>
+{% endblock %}

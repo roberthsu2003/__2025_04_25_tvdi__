@@ -1,0 +1,229 @@
+body {
+    font-family: 'Inter', sans-serif; /* 假設 Inter 字體已載入 */
+    margin: 0;
+    padding: 20px; /* 方便預覽 */
+    background-color: #f0f0f0; /* 方便預覽 */
+}
+
+.course-tabs {
+    max-width: 1174px;
+    width: 100%; /* 可調整為 100% 適應容器 */
+    margin: 0 auto; /* 置中 */
+}
+
+.tab-container {
+    display: flex;
+    height: 40px;
+}
+
+.tab-item {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.21;
+    padding: 12px 12px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #000000;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease; /* 加入轉場效果 */
+}
+
+.tab-item.active {
+    background-color: #C3C1C1;
+}
+
+.tab-item:not(.active) {
+    background-color: #E8E6E6;
+}
+
+/* Hover 效果 */
+.tab-item.active:hover {
+    background-color: #B5B3B3;
+}
+
+.tab-item:not(.active):hover {
+    background-color: #D0CECE;
+}
+
+/* 點擊反饋 (可選) */
+.tab-item:active {
+    transform: scale(0.98); /* 輕微縮放 */
+}
+.tab-line {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+}
+
+.testimonial-grid {
+    width: 1200px;
+    max-width: 100%; /* Ensure it doesn't overflow smaller viewports */
+    margin: 0 auto;
+    padding: 64px;
+    background-color: #FFFFFF; /* Overall component background */
+    box-sizing: border-box;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+
+/*card*/
+.card {
+    width: 100%;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    position: relative;
+}
+
+/* Category text */
+.card-category {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1E1E1E;
+    margin: 0 0 4px 0;
+}
+
+/* Title text */
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px 0;
+}
+
+/* Info section layout */
+.card-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Vertical divider */
+.card-divider {
+    width: 3px;
+    height: 110px;
+    background-color: #D9D9D9;
+    margin-right: 9px;
+    margin-left: 7px;
+}
+
+/* Details container */
+.card-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Info item text */
+.card-info-item {
+    font-size: 15px;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: -0.02em;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
+}
+
+.card-info-item:last-child {
+    margin-bottom: 0;
+}
+
+/*分頁*/
+.pagination {
+  list-style: none;       /* 移除預設的點點 */
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;          /* 水平排列 */
+  justify-content: center; /* 水平置中 */
+  gap: 8px;               /* 分頁按鈕間距 */
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination li a,
+.pagination li span {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  color: #007bff;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.pagination li a:hover {
+  background-color: #e9ecef;
+}
+
+.pagination li.active span {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+  cursor: default;
+}
+
+.pagination li.disabled span {
+  color: #6c757d;
+  border-color: #ddd;
+  cursor: not-allowed;
+}
+
+
+/* RWD 響應式設計 */
+
+/* 手機版 (<768px) */
+@media (max-width: 768px) {
+    .course-tabs {
+        /* 容器寬度已是 100% */
+    }
+
+    .tab-item {
+        padding: 12px 12px;
+    }
+
+    /* 標籤可能需要垂直排列或允許水平捲動 - 此處示範水平捲動 */
+    .tab-container {
+        overflow-x: auto; /* 允許水平捲動 */
+        -webkit-overflow-scrolling: touch; /* iOS 慣性捲動 */
+    }
+
+    .testimonial-grid {
+        padding: 24px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* 1 column layout */
+        gap: 24px;
+    }
+
+    .quote-text {
+        font-size: 20px;
+    }
+
+    .author-title {
+        font-size: 14px;
+    }
+
+    .author-description {
+        font-size: 14px;
+    }
+}
