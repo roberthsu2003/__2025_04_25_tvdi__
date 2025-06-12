@@ -28,7 +28,7 @@ def classes(course_types):
         kinds = [kind[0] for kind in temps]
         kinds.reverse()
 
-        sql_course = f"""
+        sql_course = """
         SELECT
             "課程名稱",
             "老師",
@@ -40,10 +40,10 @@ def classes(course_types):
         FROM
             "進修課程"
         WHERE
-            "課程類別" = '{course_types}'
+            "課程類別" = %s
         LIMIT 6;
         """
-        cur.execute(sql_course)
+        cur.execute(sql_course, (course_types,))
         course_data = cur.fetchall()
         print(course_data)
 
@@ -77,4 +77,3 @@ def traffic():
 @app.route("/contact")
 def contact():
     return render_template("contact.html.jinja2")
-
