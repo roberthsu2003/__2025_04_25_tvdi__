@@ -1,0 +1,79 @@
+/* Reset and basic styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Card container */
+.card {
+    width: 274px;
+    height: 180px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content {
+    position: relative;
+}
+
+/* Category text */
+.card-category {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1E1E1E;
+    margin: 0 0 4px 0;
+}
+
+/* Title text */
+.card-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px 0;
+}
+
+/* Info section layout */
+.card-info {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Vertical divider */
+.card-divider {
+    width: 3px;
+    height: 110px;
+    background-color: #D9D9D9;
+    margin-right: 9px;
+    margin-left: 7px;
+}
+
+/* Details container */
+.card-details {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Info item text */
+.card-info-item {
+    font-size: 15px;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: -0.02em;
+    margin: 0 0 5px 0;
+    line-height: 1.2;
+}
+
+.card-info-item:last-child {
+    margin-bottom: 0;
+}
