@@ -226,4 +226,9 @@ body {
     .author-description {
         font-size: 14px;
     }
+
+    .pagination {
+        flex-wrap: wrap; /* 允許換行 */
+        row-gap: 8px;    /* 換行後的垂直間距 */
+    }
 }
