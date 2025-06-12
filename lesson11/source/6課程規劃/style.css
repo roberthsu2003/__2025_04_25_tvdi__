@@ -1,0 +1,107 @@
+/* CSS 變數定義 */
+:root {
+    --font-family: 'Inter', sans-serif; /* 假設 Inter 字體已載入 */
+    --font-weight-medium: 500;
+    --font-size-desktop: 24px;
+    --font-size-mobile: 18px;
+    --line-height-base: 1.21;
+
+    --padding-desktop-vertical: 12px;
+    --padding-desktop-horizontal: 29px;
+    --padding-mobile-vertical: 8px;
+    --padding-mobile-horizontal: 20px;
+
+    --color-bg-selected: #C3C1C1;
+    --color-bg-selected-hover: #B5B3B3;
+    --color-bg-unselected: #E8E6E6;
+    --color-bg-unselected-hover: #D0CECE;
+    --color-text: #000000;
+    --color-line: #000000;
+
+    --border-radius-top: 15px;
+    --container-width-desktop: 1174px;
+    --container-height: 53px;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 20px; /* 方便預覽 */
+    background-color: #f0f0f0; /* 方便預覽 */
+}
+
+.course-tabs {
+    max-width: var(--container-width-desktop);
+    width: 100%; /* 可調整為 100% 適應容器 */
+    margin: 0 auto; /* 置中 */
+}
+
+.tab-container {
+    display: flex;
+    height: var(--container-height);
+}
+
+.tab-item {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-desktop);
+    line-height: var(--line-height-base);
+    padding: var(--padding-desktop-vertical) var(--padding-desktop-horizontal);
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-top-left-radius: var(--border-radius-top);
+    border-top-right-radius: var(--border-radius-top);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: var(--color-text);
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease; /* 加入轉場效果 */
+}
+
+.tab-item.active {
+    background-color: var(--color-bg-selected);
+}
+
+.tab-item:not(.active) {
+    background-color: var(--color-bg-unselected);
+}
+
+/* Hover 效果 */
+.tab-item.active:hover {
+    background-color: var(--color-bg-selected-hover);
+}
+
+.tab-item:not(.active):hover {
+    background-color: var(--color-bg-unselected-hover);
+}
+
+/* 點擊反饋 (可選) */
+.tab-item:active {
+    transform: scale(0.98); /* 輕微縮放 */
+}
+
+.tab-line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-line);
+}
+
+/* RWD 響應式設計 */
+
+/* 手機版 (<768px) */
+@media (max-width: 767.98px) {
+    .course-tabs {
+        /* 容器寬度已是 100% */
+    }
+
+    .tab-item {
+        font-size: var(--font-size-mobile);
+        padding: var(--padding-mobile-vertical) var(--padding-mobile-horizontal);
+    }
+
+    /* 標籤可能需要垂直排列或允許水平捲動 - 此處示範水平捲動 */
+    .tab-container {
+        overflow-x: auto; /* 允許水平捲動 */
+        -webkit-overflow-scrolling: touch; /* iOS 慣性捲動 */
+    }
+}

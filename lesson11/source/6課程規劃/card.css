@@ -1,0 +1,132 @@
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    background-color: #f0f0f0; /* Example page background */
+    padding: 20px; /* Example page padding */
+    box-sizing: border-box;
+}
+
+.testimonial-grid {
+    width: 1200px;
+    max-width: 100%; /* Ensure it doesn't overflow smaller viewports */
+    margin: 0 auto;
+    padding: 64px;
+    background-color: #FFFFFF; /* Overall component background */
+    box-sizing: border-box;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+}
+
+.testimonial-card {
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Helps if card content heights vary */
+    box-sizing: border-box;
+}
+
+.quote-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.2em;
+    letter-spacing: -0.02em;
+    color: #1E1E1E;
+    margin: 0 0 24px 0;
+}
+
+.author-block {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 139px; /* As per spec: "總寬度: 139px" */
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0; /* Prevent avatar from shrinking if author-block width is constrained */
+}
+
+.avatar span {
+    font-size: calc(40px * 0.5); /* Adjust letter size within avatar */
+    font-weight: 600;
+    color: #FFFFFF;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px; /* Spacing between title and description */
+    /* The text will wrap if it exceeds the available space within the 139px author-block */
+    min-width: 0; /* Allow text to shrink and wrap properly in flex item */
+}
+
+.author-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.4em;
+    color: #757575;
+    margin: 0;
+    white-space: nowrap; /* Prevent wrapping if desired, or remove for wrapping */
+    overflow: hidden;    /* Example: if text should be truncated */
+    text-overflow: ellipsis; /* Example: if text should be truncated */
+}
+
+.author-description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4em;
+    color: #B3B3B3;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Responsive Design: Mobile (≤767px) */
+@media (max-width: 767px) {
+    .testimonial-grid {
+        padding: 24px;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr; /* 1 column layout */
+        gap: 24px;
+    }
+
+    .quote-text {
+        font-size: 20px;
+    }
+
+    .author-title {
+        font-size: 14px;
+    }
+
+    .author-description {
+        font-size: 14px;
+    }
+}
