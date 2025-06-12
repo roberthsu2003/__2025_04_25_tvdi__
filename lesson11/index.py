@@ -40,14 +40,21 @@ def classes(course_types):
         FROM
             "進修課程"
         WHERE
-            "課程類別" = %s
-        LIMIT 6;
+            "課程類別" = %s;
         """
         cur.execute(sql_course, (course_types,))
         course_data = cur.fetchall()
-        print(course_data)
+        page = 5
+        per_page = 6
+        total = len(course_data)
+        print(total)
+        total_pages = total // per_page + 1
+        start = (page - 1) * per_page
+        end = start + per_page
+        items = course_data[start:end]  # 取得該頁資料
 
-    return render_template("classes.html.jinja2",kinds=kinds,course_data=course_data)
+
+    return render_template("classes.html.jinja2",kinds=kinds,course_data=items)
 
 @app.route("/new")
 def new():
