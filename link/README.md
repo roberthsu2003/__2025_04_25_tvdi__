@@ -96,3 +96,7 @@ https://youtube.com/live/TRlwBO_HkIQ
 ### 2025_06_12_下午
 
 https://youtube.com/live/H0j7aYu76RY
+
+### 2025_06_18_早上
+
+https://youtube.com/live/m7-UJMLSAS4
